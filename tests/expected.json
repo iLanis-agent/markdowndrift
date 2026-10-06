@@ -1,0 +1,96 @@
+[
+ {
+  "name": "intraword",
+  "kinds": {
+   "intraword-underscore": "literal"
+  }
+ },
+ {
+  "name": "hash-no-space",
+  "kinds": {
+   "hash-no-space": "heading"
+  }
+ },
+ {
+  "name": "ordered-paren",
+  "kinds": {
+   "ordered-paren": "paragraph"
+  }
+ },
+ {
+  "name": "ordered-start",
+  "kinds": {
+   "ordered-start": "list-no-start"
+  }
+ },
+ {
+  "name": "ordered-interrupt-2plus",
+  "kinds": {
+   "ordered-interrupt-2plus": "paragraph"
+  }
+ },
+ {
+  "name": "ordered-interrupt-1",
+  "kinds": {
+   "ordered-interrupt-1": "paragraph"
+  }
+ },
+ {
+  "name": "fence",
+  "kinds": {
+   "fence": "inline-code-span"
+  }
+ },
+ {
+  "name": "bare-url",
+  "kinds": {
+   "bare-url": "literal"
+  }
+ },
+ {
+  "name": "strikethrough",
+  "kinds": {
+   "strikethrough": "literal"
+  }
+ },
+ {
+  "name": "table",
+  "kinds": {
+   "table": "literal"
+  }
+ },
+ {
+  "name": "sublist-2",
+  "kinds": {
+   "sublist-indent-2": "sibling"
+  }
+ },
+ {
+  "name": "task-list",
+  "kinds": {
+   "task-list": "literal-marker"
+  }
+ },
+ {
+  "name": "mixed-doc",
+  "kinds": {
+   "fence": "inline-code-span",
+   "ordered-start": "list-no-start",
+   "intraword-underscore": "literal",
+   "bare-url": "literal"
+  }
+ },
+ {
+  "name": "readme-style",
+  "kinds": {
+   "table": "literal",
+   "hash-no-space": "heading",
+   "strikethrough": "literal",
+   "task-list": "literal-marker"
+  }
+ },
+ {
+  "name": "clean-doc",
+  "kinds": {}
+ }
+]
