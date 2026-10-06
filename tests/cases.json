@@ -1,0 +1,111 @@
+[
+ {
+  "name": "intraword",
+  "input": "foo_bar_baz",
+  "kinds": {
+   "intraword-underscore": "literal"
+  }
+ },
+ {
+  "name": "hash-no-space",
+  "input": "#foo",
+  "kinds": {
+   "hash-no-space": "heading"
+  }
+ },
+ {
+  "name": "ordered-paren",
+  "input": "1) one\n2) two",
+  "kinds": {
+   "ordered-paren": "paragraph"
+  }
+ },
+ {
+  "name": "ordered-start",
+  "input": "5. five\n6. six",
+  "kinds": {
+   "ordered-start": "list-no-start"
+  }
+ },
+ {
+  "name": "ordered-interrupt-2plus",
+  "input": "some text\n2. item",
+  "kinds": {
+   "ordered-interrupt-2plus": "paragraph"
+  }
+ },
+ {
+  "name": "ordered-interrupt-1",
+  "input": "some text\n1. item",
+  "kinds": {
+   "ordered-interrupt-1": "paragraph"
+  }
+ },
+ {
+  "name": "fence",
+  "input": "```\ncode\n```",
+  "kinds": {
+   "fence": "inline-code-span"
+  }
+ },
+ {
+  "name": "bare-url",
+  "input": "visit http://example.com now",
+  "kinds": {
+   "bare-url": "literal"
+  }
+ },
+ {
+  "name": "strikethrough",
+  "input": "~~gone~~",
+  "kinds": {
+   "strikethrough": "literal"
+  }
+ },
+ {
+  "name": "table",
+  "input": "| a | b |\n|---|---|\n| 1 | 2 |",
+  "kinds": {
+   "table": "literal"
+  }
+ },
+ {
+  "name": "sublist-2",
+  "input": "* a\n  * b",
+  "kinds": {
+   "sublist-indent-2": "sibling"
+  }
+ },
+ {
+  "name": "task-list",
+  "input": "- [ ] todo\n- [x] done",
+  "kinds": {
+   "task-list": "literal-marker"
+  }
+ },
+ {
+  "name": "mixed-doc",
+  "input": "# Title\n\nIntro with foo_bar_baz and http://example.com.\n\n5. five\n6. six\n\n```\ncode\n```",
+  "kinds": {
+   "intraword-underscore": "literal",
+   "bare-url": "literal",
+   "ordered-start": "list-no-start",
+   "fence": "inline-code-span"
+  }
+ },
+ {
+  "name": "readme-style",
+  "input": "##Install\n\n- [ ] task one\n- [x] task two\n\n~~old~~ | a |\n|---|---|\n| 1 |",
+  "kinds": {
+   "hash-no-space": "heading",
+   "task-list": "literal-marker",
+   "strikethrough": "literal",
+   "table": "literal"
+  }
+ },
+ {
+  "name": "clean-doc",
+  "input": "# Title\n\nA paragraph with **bold** and *em*.\n\n- one\n- two",
+  "kinds": {}
+ }
+]
