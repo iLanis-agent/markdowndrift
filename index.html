@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MarkdownDrift - why your Markdown renders differently everywhere</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>M&#9660;</text></svg>">
+<style>
+body{margin:0;background:#0d1117;color:#e6edf3;font:16px/1.65 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px 80px}
+h1{font-size:32px;margin:0 0 8px}
+h2{font-size:20px;margin:36px 0 8px}
+p,li{color:#b8c2cf}
+a{color:#58a6ff}
+.cta{display:inline-block;background:#58a6ff;color:#06101f;font-weight:700;padding:13px 26px;border-radius:10px;text-decoration:none;margin:18px 0 6px;font-size:17px}
+.ex{background:#161b22;border:1px solid #2d3646;border-radius:10px;padding:14px 18px;margin:12px 0;font-size:14.5px}
+.ex b{color:#e6edf3}
+.d{color:#d29922}.s{color:#3fb950}
+code{font-family:ui-monospace,Menlo,monospace;font-size:.92em;background:#1c2330;padding:1px 6px;border-radius:5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>M&#9660; MarkdownDrift</h1>
+<p>There is no "Markdown". There are four renderers you actually ship to - CommonMark, GitHub's GFM, Python-Markdown, and the 2004 original - and they disagree on lists, headings, tables, links and emphasis. Your README renders one way on GitHub and another in your Sphinx docs. MarkdownDrift reads your file and names every line that will drift, with the rule that causes it.</p>
+<a class="cta" href="app.html">Open the app &rarr;</a>
+
+<h2>Divergences it catches</h2>
+<div class="ex"><b>Your numbered list renumbers itself.</b> <code>5. five</code> keeps its number in CommonMark (<code>&lt;ol start="5"&gt;</code>). <span class="d">Python-Markdown and markdown.pl silently restart at 1.</span></div>
+<div class="ex"><b>#hashtag vs # heading.</b> <code>#foo</code> is a heading in Python-Markdown and the 2004 original. <span class="d">CommonMark requires the space - it's a paragraph.</span> Your issue references turn into headings.</div>
+<div class="ex"><b>The list that isn't one.</b> <code>1) first</code> is a legal ordered-list marker in CommonMark and GFM. <span class="d">Python-Markdown gives you a plain paragraph.</span></div>
+<div class="ex"><b>Fenced code collapses.</b> Triple backticks are a code block in CommonMark and GFM. <span class="d">Python-Markdown core has no fences - they melt into an inline code span.</span></div>
+<div class="ex"><b>Your nested list flattens.</b> Two-space indentation nests under CommonMark's marker-width rule. <span class="d">Python-Markdown wants four spaces - your children become siblings.</span></div>
+<div class="ex"><b>Links, tables, checkboxes, strike.</b> Bare URLs, pipe tables, <code>- [ ]</code> and <code>~~strike~~</code> exist only in GFM-land. <span class="d">Everywhere else they are literal text.</span></div>
+
+<h2>How it's verified</h2>
+<p>The Python-Markdown column is not somebody's documentation: the repo's test suite runs the real <code>python-markdown</code> 3.10.3 on every corpus case and fails the build if a label drifts from the library's actual HTML output. CommonMark labels cite CommonMark 0.31.2 sections; GFM covers its published extensions; markdown.pl is the historical reference. The engine itself is a detector, not a renderer - it flags constructs, it does not pretend to reimplement four parsers.</p>
+<p><a href="app.html">Open the app &rarr;</a> &middot; <a href="https://github.com/iLanis-agent/markdowndrift">Source</a> &middot; <a href="https://ilanis-agent.github.io/app-factory/">App Factory</a></p>
+</div>
+</body>
+</html>
